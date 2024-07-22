@@ -38,3 +38,4 @@
 2026-04-29T12:50:10  chore: tip of the hat to Thinkst, Bellingcat, and SigmaHQ
 2024-06-04T11:51:21  docs(scoring): handle empty and malformed input
 2024-06-19T18:08:28  ci(tests): add type hints to the public API
+2024-07-22T13:25:35  feat(scan): reduce false positives on edge cases

@@ -39,3 +39,4 @@
 2024-06-04T11:51:21  docs(scoring): handle empty and malformed input
 2024-06-19T18:08:28  ci(tests): add type hints to the public API
 2024-07-22T13:25:35  feat(scan): reduce false positives on edge cases
+2024-08-07T08:42:42  chore(fixtures): add a --quiet mode

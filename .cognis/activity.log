@@ -42,3 +42,4 @@
 2024-08-07T08:42:42  chore(fixtures): add a --quiet mode
 2024-08-22T15:59:49  refactor(engine): add a dry-run flag
 2024-09-08T10:16:56  style(tests): improve the demo scenario
+2024-09-23T17:33:03  build(scan): add a JSON schema for output

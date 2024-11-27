@@ -45,3 +45,4 @@
 2024-09-23T17:33:03  build(scan): add a JSON schema for output
 2024-10-08T12:50:10  fix(fixtures): wire the MCP tool schema
 2024-11-11T19:07:17  docs(engine): pin the test dependencies
+2024-11-27T14:24:24  perf(tests): add --fail-on threshold handling

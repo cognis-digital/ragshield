@@ -50,3 +50,4 @@
 2024-12-28T16:58:38  build(fixtures): add type hints to the public API
 2025-01-12T11:15:45  perf(docs): add usage examples to help
 2025-01-29T18:32:52  style(scoring): simplify the walker
+2025-02-13T13:49:59  build(rules): improve error messages with context

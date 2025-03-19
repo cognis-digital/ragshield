@@ -51,3 +51,4 @@
 2025-01-12T11:15:45  perf(docs): add usage examples to help
 2025-01-29T18:32:52  style(scoring): simplify the walker
 2025-02-13T13:49:59  build(rules): improve error messages with context
+2025-03-19T08:06:06  fix(output): add a regression fixture

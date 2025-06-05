@@ -56,3 +56,4 @@
 2025-04-19T10:40:20  test(scoring): stream large files without buffering
 2025-05-05T17:57:27  ci(rules): guard against ReDoS in patterns
 2025-05-20T12:14:34  feat(output): memoize repeated lookups
+2025-06-05T19:31:41  chore(docs): add a --format json alias

@@ -57,3 +57,4 @@
 2025-05-05T17:57:27  ci(rules): guard against ReDoS in patterns
 2025-05-20T12:14:34  feat(output): memoize repeated lookups
 2025-06-05T19:31:41  chore(docs): add a --format json alias
+2025-07-08T14:48:48  refactor(scoring): respect .gitignore when walking

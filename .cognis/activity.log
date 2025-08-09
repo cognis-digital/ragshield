@@ -59,3 +59,4 @@
 2025-06-05T19:31:41  chore(docs): add a --format json alias
 2025-07-08T14:48:48  refactor(scoring): respect .gitignore when walking
 2025-07-24T09:05:55  test(rules): add usage examples to help
+2025-08-09T16:22:02  ci(output): simplify the walker

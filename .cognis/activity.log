@@ -71,3 +71,4 @@
 2026-01-14T19:55:05  test: add edge case
 2026-01-30T14:12:12  chore: BLACKBOOK redaction pass
 2026-03-05T09:29:19  refactor: future me will understand this
+2026-03-21T16:46:26  fix(rules): load rules lazily for faster startup

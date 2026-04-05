@@ -72,3 +72,4 @@
 2026-01-30T14:12:12  chore: BLACKBOOK redaction pass
 2026-03-05T09:29:19  refactor: future me will understand this
 2026-03-21T16:46:26  fix(rules): load rules lazily for faster startup
+2026-04-05T11:03:33  docs(output): short-circuit on first critical

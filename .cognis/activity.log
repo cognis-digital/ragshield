@@ -74,3 +74,4 @@
 2026-03-21T16:46:26  fix(rules): load rules lazily for faster startup
 2026-04-05T11:03:33  docs(output): short-circuit on first critical
 2026-04-20T18:20:40  perf(docs): make timestamps timezone-aware
+2026-05-06T13:37:47  style(scoring): skip binary files by sniffing

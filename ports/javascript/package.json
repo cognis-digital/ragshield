@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/ragshield",
+  "version": "0.2.0",
+  "description": "JavaScript port of ragshield (Cognis Neural Suite)",
+  "bin": {
+    "ragshield": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}

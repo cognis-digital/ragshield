@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: ragshield, labels: { app: ragshield } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: ragshield } }
+  template:
+    metadata: { labels: { app: ragshield } }
+    spec:
+      containers:
+        - name: ragshield
+          image: ghcr.io/cognis-digital/ragshield:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: ragshield }
+spec:
+  selector: { app: ragshield }
+  ports: [{ port: 80, targetPort: 8000 }]

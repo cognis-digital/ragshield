@@ -1,0 +1,26 @@
+[
+  {
+    "doc": "hr-policy-2024.pdf",
+    "duplicate_count": "0",
+    "contains_trigger": false,
+    "outlier": false
+  },
+  {
+    "doc": "hr-policy-2024-FAKE.pdf",
+    "duplicate_count": "5",
+    "contains_trigger": true,
+    "outlier": true
+  },
+  {
+    "doc": "finance-q3.pdf",
+    "duplicate_count": "0",
+    "contains_trigger": false,
+    "outlier": false
+  },
+  {
+    "doc": "shadow-it-policy.md",
+    "duplicate_count": "2",
+    "contains_trigger": false,
+    "outlier": true
+  }
+]

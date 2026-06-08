@@ -1,0 +1,14 @@
+[
+  {
+    "doc": "product-spec.pdf",
+    "duplicate_count": "0",
+    "contains_trigger": false,
+    "outlier": false
+  },
+  {
+    "doc": "api-docs.md",
+    "duplicate_count": "0",
+    "contains_trigger": false,
+    "outlier": false
+  }
+]

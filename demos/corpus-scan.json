@@ -1,0 +1,14 @@
+[
+  {
+    "doc": "finance.pdf",
+    "duplicate_count": "3",
+    "contains_trigger": false,
+    "outlier": false
+  },
+  {
+    "doc": "hr.pdf",
+    "duplicate_count": "0",
+    "contains_trigger": true,
+    "outlier": true
+  }
+]

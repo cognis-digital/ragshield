@@ -1,0 +1,20 @@
+[
+  {
+    "doc": "paper-arxiv-2401.pdf",
+    "duplicate_count": "0",
+    "contains_trigger": false,
+    "outlier": true
+  },
+  {
+    "doc": "paper-arxiv-2402.pdf",
+    "duplicate_count": "0",
+    "contains_trigger": false,
+    "outlier": true
+  },
+  {
+    "doc": "summary.md",
+    "duplicate_count": "3",
+    "contains_trigger": false,
+    "outlier": false
+  }
+]

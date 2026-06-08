@@ -36,7 +36,12 @@ RAG corpus poisoning detector — embedding anomalies, backdoor triggers — wit
 <a name="features"></a>
 ## Features
 
-- ✅ Scan
+- ✅ Load Jsonl
+- ✅ Detect Backdoor Triggers
+- ✅ Detect Instruction Injection
+- ✅ Detect Embedding Anomalies
+- ✅ Detect Duplication
+- ✅ Scan Corpus
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 

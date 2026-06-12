@@ -16,7 +16,7 @@ import math
 import re
 import unicodedata
 from dataclasses import dataclass, field, asdict
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 # --- severity ranking -------------------------------------------------------
 _SEVERITY_WEIGHT = {"info": 1, "low": 2, "medium": 5, "high": 9, "critical": 15}

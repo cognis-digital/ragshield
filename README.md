@@ -19,7 +19,7 @@ Security and intelligence teams need RAG corpus poisoning detector — embedding
 ## Install
 
 ```bash
-pip install cognis-ragshield
+pip install "git+https://github.com/cognis-digital/ragshield.git"
 # or, from this repo:
 pip install -e ".[dev]"
 ```

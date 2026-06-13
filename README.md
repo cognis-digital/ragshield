@@ -12,6 +12,30 @@
 
 *AI Security & Governance — securing LLMs, agents, and the MCP supply chain.*
 
+## Usage — step by step
+
+1. **Install** the `ragshield` command:
+   ```bash
+   pip install cognis-ragshield   # or: pip install -e .   from this repo
+   ```
+2. **Scan a JSONL corpus** for poisoning, backdoor triggers and embedding anomalies (`scan` is the only subcommand; the corpus path is positional):
+   ```bash
+   ragshield scan demos/01-basic/corpus.jsonl
+   ```
+3. **Tune the gate.** `--fail-on` sets the minimum severity that exits non-zero (`medium` default; also `high`, `critical`, `any`, `never`); `--dup-threshold` controls the near-duplicate Jaccard cutoff (default `0.9`):
+   ```bash
+   ragshield scan corpus.jsonl --fail-on high --dup-threshold 0.85
+   ```
+4. **Read the output.** `--format json` emits `doc_count`, `risk_score`, `poisoned` and a `findings` list (each with `severity`, `detector`, `doc_id`, `message`); the default `table` renders the same data for humans:
+   ```bash
+   ragshield scan corpus.jsonl --format json > scan.json
+   ```
+5. **Wire it into CI** — the exit code is the gate, so a poisoned corpus fails the build:
+   ```yaml
+   - run: pip install cognis-ragshield
+   - run: ragshield scan data/corpus.jsonl --fail-on high
+   ```
+
 ## Why
 
 Security and intelligence teams need RAG corpus poisoning detector — embedding anomalies, backdoor triggers without standing up heavyweight infrastructure. `ragshield` is single-purpose, scriptable, CI-friendly, and self-hostable: point it at a target, get prioritized findings in the format your workflow already speaks (table, JSON, SARIF, HTML), and wire it into agents over MCP when you want it autonomous.

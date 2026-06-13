@@ -12,9 +12,51 @@
 
 *AI Security & Governance — securing LLMs, agents, and the MCP supply chain.*
 
+<!-- cognis:layman:start -->
+## What is this?
+
+RAGSHIELD checks the documents stored inside an AI assistant's knowledge base for hidden attacks before they can mislead the AI. When someone poisons a knowledge base — by inserting invisible characters, sneaky instructions, or dozens of duplicate entries — the AI starts giving wrong or harmful answers to real users. RAGSHIELD scans every document and flags suspicious content, giving you a clear report with severity levels so you can remove the bad entries before they cause damage. It is designed for developers and security teams who build or maintain AI tools that rely on a searchable document library.
+<!-- cognis:layman:end -->
+
 ## Why
 
 Security and intelligence teams need RAG corpus poisoning detector — embedding anomalies, backdoor triggers without standing up heavyweight infrastructure. `ragshield` is single-purpose, scriptable, CI-friendly, and self-hostable: point it at a target, get prioritized findings in the format your workflow already speaks (table, JSON, SARIF, HTML), and wire it into agents over MCP when you want it autonomous.
+
+<!-- cognis:install:start -->
+## Install
+
+`ragshield` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/ragshield/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/ragshield/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/ragshield.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/ragshield.git"  # uv
+pip install "git+https://github.com/cognis-digital/ragshield.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/ragshield.git
+cd ragshield && pip install .
+```
+
+Then run:
+```sh
+ragshield --help
+```
+<!-- cognis:install:end -->
 
 ## Install
 

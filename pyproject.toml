@@ -36,3 +36,6 @@ ragshield = "ragshield.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["ragshield"]
+
+[tool.hatch.metadata]
+allow-direct-references = true

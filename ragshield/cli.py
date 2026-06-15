@@ -76,20 +76,48 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser = _build_parser()
     args = parser.parse_args(argv)
 
-    if args.command != "scan":
+    if not getattr(args, "command", None) or args.command != "scan":
         parser.print_help()
         return 0
+
+    # validate --dup-threshold range before touching the file
+    dup_threshold = args.dup_threshold
+    if not (0.0 < dup_threshold <= 1.0):
+        print(
+            f"error: --dup-threshold must be in range (0.0, 1.0], got {dup_threshold}",
+            file=sys.stderr,
+        )
+        return 2
 
     try:
         docs = load_jsonl(args.corpus)
     except FileNotFoundError:
         print(f"error: corpus not found: {args.corpus}", file=sys.stderr)
         return 2
+    except IsADirectoryError:
+        print(
+            f"error: corpus path is a directory, not a file: {args.corpus}",
+            file=sys.stderr,
+        )
+        return 2
+    except PermissionError:
+        print(
+            f"error: permission denied reading corpus: {args.corpus}",
+            file=sys.stderr,
+        )
+        return 2
+    except OSError as exc:
+        print(f"error: could not read corpus: {exc}", file=sys.stderr)
+        return 2
     except ValueError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
 
-    result = scan_corpus(docs, dup_threshold=args.dup_threshold)
+    try:
+        result = scan_corpus(docs, dup_threshold=dup_threshold)
+    except (TypeError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
 
     if args.format == "json":
         print(json.dumps(result.to_dict(), indent=2))

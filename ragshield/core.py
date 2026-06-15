@@ -63,7 +63,18 @@ class ScanResult:
 
 # --- IO ---------------------------------------------------------------------
 def load_jsonl(path: str) -> List[Dict[str, Any]]:
-    """Load a JSONL corpus file. Skips blank lines; raises on bad JSON."""
+    """Load a JSONL corpus file. Skips blank lines; raises on bad JSON.
+
+    Raises:
+        FileNotFoundError: if the path does not exist.
+        IsADirectoryError: if the path is a directory.
+        PermissionError: if the file cannot be read.
+        OSError: for other I/O errors.
+        ValueError: if a line is not valid JSON or not a JSON object.
+    """
+    import os as _os
+    if _os.path.isdir(path):
+        raise IsADirectoryError(f"corpus path is a directory, not a file: {path}")
     docs: List[Dict[str, Any]] = []
     with open(path, "r", encoding="utf-8") as fh:
         for lineno, raw in enumerate(fh, 1):
@@ -75,7 +86,10 @@ def load_jsonl(path: str) -> List[Dict[str, Any]]:
             except json.JSONDecodeError as exc:
                 raise ValueError(f"{path}:{lineno}: invalid JSON: {exc}") from exc
             if not isinstance(obj, dict):
-                raise ValueError(f"{path}:{lineno}: expected a JSON object")
+                raise ValueError(
+                    f"{path}:{lineno}: expected a JSON object,"
+                    f" got {type(obj).__name__}"
+                )
             obj.setdefault("id", f"doc-{lineno}")
             obj.setdefault("text", "")
             docs.append(obj)
@@ -371,7 +385,29 @@ def detect_duplication(docs: List[Dict[str, Any]], threshold: float = 0.9) -> Li
 
 # --- orchestrator -----------------------------------------------------------
 def scan_corpus(docs: List[Dict[str, Any]], dup_threshold: float = 0.9) -> ScanResult:
-    """Run all detectors over a loaded corpus and aggregate a risk score."""
+    """Run all detectors over a loaded corpus and aggregate a risk score.
+
+    Args:
+        docs: list of document dicts (each must have at minimum 'id' and 'text').
+        dup_threshold: Jaccard similarity cutoff for near-duplicate detection,
+            must be in the range (0.0, 1.0] inclusive.
+
+    Raises:
+        TypeError: if docs is not a list.
+        ValueError: if dup_threshold is not a number or is out of range.
+    """
+    if not isinstance(docs, list):
+        raise TypeError(f"docs must be a list, got {type(docs).__name__}")
+    try:
+        dup_threshold = float(dup_threshold)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(
+            f"dup_threshold must be a number, got {dup_threshold!r}"
+        ) from exc
+    if not (0.0 < dup_threshold <= 1.0):
+        raise ValueError(
+            f"dup_threshold must be in range (0.0, 1.0], got {dup_threshold}"
+        )
     findings: List[Finding] = []
     findings += detect_backdoor_triggers(docs)
     findings += detect_instruction_injection(docs)

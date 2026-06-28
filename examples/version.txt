@@ -1,0 +1,3 @@
+$ ragshield-emit --version
+
+ragshield 0.1.0

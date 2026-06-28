@@ -1,0 +1,16 @@
+$ ragshield-emit --help
+
+usage: ragshield [-h] [--version] {scan} ...
+
+RAGSHIELD - detect poisoning, backdoor triggers and embedding anomalies in a
+RAG corpus (JSONL).
+
+positional arguments:
+  {scan}
+    scan      scan a JSONL corpus file for poisoning
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
+
+example: ragshield scan demos/01-basic/corpus.jsonl --format table

@@ -12,6 +12,62 @@
 
 *AI Security & Governance — securing LLMs, agents, and the MCP supply chain.*
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ ragshield-emit --version
+ragshield 0.1.0
+```
+
+```console
+$ ragshield-emit --help
+usage: ragshield [-h] [--version] {scan} ...
+
+RAGSHIELD - detect poisoning, backdoor triggers and embedding anomalies in a
+RAG corpus (JSONL).
+
+positional arguments:
+  {scan}
+    scan      scan a JSONL corpus file for poisoning
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
+
+example: ragshield scan demos/01-basic/corpus.jsonl --format table
+```
+
+> Blocks above are real `ragshield` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"findings": [
+    {
+        "id": "1234",
+        "title": "Suspicious Activity",
+        "description": "Possible malicious activity detected on network 192.168.1.100",
+        "confidence": 0.8,
+        "created_at": "2023-02-15T14:30:00Z"
+    },
+    {
+        "id": "5678",
+        "title": "Malware Detection",
+        "description": "Malware detected on system with IP address 192.168.1.101",
+        "confidence": 0.9,
+        "created_at": "2023-02-15T14:31:00Z"
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the `ragshield` command:
